@@ -26,10 +26,8 @@ if song_link.nil?
 end
 
 lyrics_started = false
-lyrics_finished = false
-
 open("http://www.azlyrics.com/#{artist[0]}/#{song_link}").each do |line|
-    lyrics_finished = true if line.include? '<!-- end of lyrics -->'
-    puts line.gsub(%r{</?[^>]+?>}, '') if lyrics_started and not lyrics_finished
+    break if line.include? '<!-- end of lyrics -->'
+    puts line.gsub(%r{</?[^>]+?>}, '') if lyrics_started
     lyrics_started = true if line.include? '<!-- start of lyrics -->'
 end
