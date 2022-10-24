@@ -1,3 +1,7 @@
+I have updated this script to make it more resilient.
+The old script tried to construct the address (on AZLyrics) of the lyrics page from the artist name and song name but that often failed.
+This version creates a search url instead and selects the first result.
+
 command-line-lyrics
 ===================
 
